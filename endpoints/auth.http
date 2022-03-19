@@ -1,0 +1,43 @@
+@host=http://localhost
+@port=3001
+@route=/api
+
+@hostname={{host}}:{{port}}{{route}}
+
+@idUser=622249852c307f3b9b23eef7
+@idUserAdmin=622234cfeca18007aa724315
+@token=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjIxNjI1OTg0ZWIyNDQzZjEzODc2ZDIiLCJpYXQiOjE2NDY5MzU2NDF9._W3pLfIvKSUJvRVb0PbE0F9_ddBz30wyTQx43_6xxZI
+
+
+###  signup
+POST {{hostname}}/signup
+Content-Type: application/json
+
+{
+    "name":"boricua",
+    "email":"boricua@email.com",
+    "password":"password123"
+}
+
+
+### sign in
+POST {{hostname}}/signin
+Content-Type: application/json
+
+{
+    "email":"lizzy@email.com",
+    "password":"password"
+}
+ 
+###
+GET {{hostname}}/signout
+
+###
+GET {{hostname}}/secret/{{idUserAdmin}}
+Content-Type: application/json
+Authorization: {{token}}
+
+
+###test
+GET {{hostname}}/test
+Content-Type: application/json

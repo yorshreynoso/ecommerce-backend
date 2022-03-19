@@ -1,0 +1,74 @@
+@host=http://localhost
+@port=3000
+@route=/api
+
+@hostname={{host}}:{{port}}{{route}}
+
+@idUser=622234cfeca18007aa724315
+@idUserAdmin=6221625984eb2443f13876d2
+@token=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjIxNjI1OTg0ZWIyNDQzZjEzODc2ZDIiLCJpYXQiOjE2NDY5MzU2NDF9._W3pLfIvKSUJvRVb0PbE0F9_ddBz30wyTQx43_6xxZI
+@product=6222a9735bfb3d59fd5d9210
+
+###  create NOT WORKING, I HAD TO USE POSTMAN
+POST {{hostname}}/product/create/{{idUserAdmin}}
+Content-Type: application/json
+Content-Type: multipart/form-data
+Content-Type: image/jpeg
+Authorization: {{token}}
+
+{
+    "name":"Node Book",
+    "description":"My first book on NodeJS",
+    "price":20,
+    "category":"6222707faec74c85ce4ce9ce",
+    "shipping":false,
+    "quantity":100,
+    "photo": "HOW TO ADD A PHOTO FILE"
+    
+}
+
+###  read
+GET {{hostname}}/product/{{product}}
+Content-Type: application/json
+Authorization: {{token}}
+
+
+### remove
+DELETE {{hostname}}/product/{{product}}/{{idUserAdmin}}
+Content-Type: application/json
+Authorization: {{token}}
+
+
+### update  NO SE PUEDE HACER DESDE AQUI
+PUT {{hostname}}/product/{{product}}/{{idUserAdmin}}
+Content-Type: application/json
+Authorization: {{token}}
+
+
+### list
+GET {{hostname}}/products
+
+### list        by sell
+@sortB=
+GET {{hostname}}/products?sortBy=sold&order=desc&limit=4
+
+
+### list        by arrival
+@sortB=
+GET {{hostname}}/products?sortBy=createdAt&order=desc&limit=4
+
+
+### listRelated
+GET {{hostname}}/products/related/6227eccae11bb46029a6825c
+
+
+### listCategories
+GET {{hostname}}/products/categories
+
+### listBySearch
+POST {{hostname}}/products/by/search
+
+### photo
+GET  {{hostname}}/product/photo/6227d8eab6c814dd21b6eef9
+//http://localhost:3000/api/product/photo/6227eccae11bb46029a6825c
+//se ve en el explorador al ser una imagen
