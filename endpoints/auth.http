@@ -6,7 +6,7 @@
 
 @idUser=622249852c307f3b9b23eef7
 @idUserAdmin=622234cfeca18007aa724315
-@token=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjIxNjI1OTg0ZWIyNDQzZjEzODc2ZDIiLCJpYXQiOjE2NDY5MzU2NDF9._W3pLfIvKSUJvRVb0PbE0F9_ddBz30wyTQx43_6xxZI
+@token=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjNhNWVlNTljODMwN2IxYTU5ZDM0YTIiLCJpYXQiOjE2NDc5OTI1NjZ9.0nVNJNFdJ8jgY9ur0J0AKZv_aAj8km6duNiHkMXpmes
 
 
 ###  signup
@@ -25,8 +25,8 @@ POST {{hostname}}/signin
 Content-Type: application/json
 
 {
-    "email":"lizzy@email.com",
-    "password":"password"
+    "email":"boricua@email.com",
+    "password":"password123"
 }
  
 ###

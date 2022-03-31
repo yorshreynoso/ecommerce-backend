@@ -5,15 +5,17 @@ const {errorHandler} = require('../helpers/dbErrorHandler');
 
 const Product = require('../models/Product');
 
-const create = (req, res) => {
-    console.log('la data ', req.body);
-    return res.send('hagale parse');
+const create = async(req, res) => {
+    //return res.send('hagale parse');
     let form = new formidable.IncomingForm();
+    console.log('vamo a calmarnos', form); //pues recibo vacio y se crea jajaj
+
     form.keepExtensions = true;
     form.parse(req, async (err, fields, files) => {
         if (err) return res.status(400).json({ error: "image could not be uploaded" });
         
         let product = new Product(fields);
+        console.log('the product', product);
 
         if (!files.photo) return res.status(400).json({ error:"There is no photo added" });
         if (files.photo.size > 1000000) return res.status(400).json({ error: "Image should be less than 1mb in size" });
@@ -120,6 +122,7 @@ const update = async(req, res) => {
 */
 
 const list = async(req, res) => {
+
     let order   = req.query.order   ? req.query.order : 'asc';
     let sortBy  = req.query.sortBy  ? req.query.sortBy: '_id';
     let limit   = req.query.limit   ? parseInt(req.query.limit) : 3;

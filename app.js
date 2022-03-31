@@ -1,6 +1,6 @@
 const express   = require('express');
 const app       = express();
-const morgan    = require('morgan');
+const morgan    = require('morgan'); //cachar peticiones http
 const cors      = require('cors');
 const cookieParser      = require('cookie-parser');
 const expressValidator  = require('express-validator');
